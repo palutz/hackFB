@@ -30,17 +30,24 @@ app.configure(function () {
 //   });
 // });
 
+app.get('/test', function(req, res) {
+  var msg = req.param("hub.challenge");
+  console.log(msg);
+  res.end(msg);
+});
+
 app.post('/test', function(req, res) {
-    var msg = req.body.aaa;
+    console.log(req.body);
+    var msg = JSON.stringify(req.body);
     console.log("msg=", msg);
     redisClient.lpush("messages", msg, function(err, response) {
       if(!err)
-        console.log("aaa= " + msg);
+        console.log("msg= " + msg);
       else
         console.log("err " + err);
     });
     res.send(req.body);
 });
 
-console.log("v 0.0.3");
-app.listen(30000);
+console.log("v 0.1.0");
+app.listen(3000);
