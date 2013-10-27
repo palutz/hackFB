@@ -19,7 +19,7 @@ app.configure(function () {
   app.use(express.bodyParser());
   app.use(express.cookieParser());
   app.use(express.session({ secret: 'foo bar' }));
-  //app.use(Facebook.middleware({ appId: '443450462433313', secret: 'e845699c7d3e0e47b7a02f63c04fa1c5' }));
+  //app.use(Facebook.middleware({ appId: '', secret: '' }));
 });
 
 // app.get('/', Facebook.loginRequired(), function (req, res) {
